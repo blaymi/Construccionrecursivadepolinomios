@@ -1,0 +1,86 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Untitled0.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyN4LsbWqhaAfig+JTZUokua",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/blaymi/Construccionrecursivadepolinomios/blob/main/punto1\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "Voh-Dv4nEUDd"
+      },
+      "source": [
+        "# Polinomios\n",
+        "\n",
+        "* $P_{0}(x) = x-2$\n",
+        "* $P_{1}(x) = x^2+x$\n",
+        "* $P_{n}(x) = P_{n-1}(\\frac{x}{2})-xP_{n-2}(\\frac{x}{4})$"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "TcO6sELJCf7w"
+      },
+      "source": [
+        "import numpy as np\n",
+        "import sympy as sp\n",
+        "import matplotlib.pyplot as plt\n",
+        "x = sp.Symbol('x')\n",
+        "\n",
+        "def funcion_pun1(n=2):\n",
+        "  polinomios=[1,x]\n",
+        "  for i in range(2,n+1):\n",
+        "    polinomios.append((1/2)*polinomios[i-1]-x*(1/4)*polinomios[i-2])\n",
+        "  return polinomios"
+      ],
+      "execution_count": 33,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "uwmTTwZuFMBh"
+      },
+      "source": [
+        "poly = funcion_pun1(50)"
+      ],
+      "execution_count": 34,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "DT8prZaWJhxX"
+      },
+      "source": [
+        "poly[50]"
+      ],
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
